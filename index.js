@@ -28,6 +28,7 @@ mongoose.connection.on("disconnected", ()=>{
 // api call
 
 //midlewear
+app.use(express.json());
 
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
