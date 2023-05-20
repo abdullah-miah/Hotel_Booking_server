@@ -5,15 +5,17 @@ import hotel from "../models/hotel.js";
 create hotle controller
 */
 
-export const createHotel = async (res,req,next)=>{
+export const createHotel = async(req,res)=>{
+
     const newHotel = new hotel(req.body);
     try {
        const saveHotel = await newHotel.save();
        res.status(200).json(saveHotel); 
     } catch (error) {
-      next(error);
+      res.status(500).json(error);
     }
 };
+
 
 /*
 Update hotle controller
